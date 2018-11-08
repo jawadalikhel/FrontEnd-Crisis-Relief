@@ -1,36 +1,38 @@
 import React, {Component} from 'react';
 import CreateGoal from '../CreateGoal';
-import EditGoal from '../EditGoal';
-import GoalList from '../GoalList';
+// import EditGoal from '../EditGoal';
+// import GoalList from '../GoalList';
 
 class GoalsContainer extends Component{
   constructor(){
     super();
     this.state = {
-      goalsObj: [
-        {name: 'Dawaj', country: 'Mali', crisis:'Flood', helped: true}
-      ]
+      goals: []
     }
   }
 
-  addGoal = (goal) =>{
-    goal.id = Math.random();
-    const newGoal = [...this.state.goalsObj, goal];
-    this.setState({
-      goalsObj: newGoal,
-    })
+  addGoal = async (goal, e) =>{
+    e.preventDefault();
+    console.log(goal, ' THIS IS THE GOOOOAL')
+
+    try {
+      const createGoal = await fetch('http://localhost:9000/api/v1/goals', {
+        method: 'POST',
+        body: JSON.stringify(goal),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+    } catch (err) {
+      console.log(err, 'Error in addGoal')
+    }
   }
 
   render(){
-    console.log(this.state.goalsObj, ' <--- this is goalsObj data')
     return(
       <div>
-        <h1>Goals Container</h1>
-        <CreateGoal />
-        <p>-------------------------------</p>
-        <EditGoal />
-        <p>-------------------------------</p>
-        <GoalList showGoal={this.state.goalsObj}/>
+        is this working
+        <CreateGoal addGoal={this.addGoal} />
       </div>
     )
   }
