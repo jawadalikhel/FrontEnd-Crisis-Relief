@@ -10,17 +10,17 @@ class CreateGoal extends Component{
     }
   }
 
-  updateGoal = (e) =>{
+  handleChange = (e) =>{
     this.setState({[e.currentTarget.name]: e.currentTarget.value})
   }
 
   render(){
     return(
-      <form onSubmit={this.props.addGoal.bind(null, this.state)}>
-        Name:    <input type='text' name='name' onChange={this.updateGoal} value={this.state.name} placeholder='Your name' /><br/>
-        Country: <input type='text' name='country' onChange={this.updateGoal} value={this.state.country} placeholder='Country Name' /><br/>
-        Crisis:  <input type='text' name='crisis' onChange={this.updateGoal} value={this.state.crisis} placeholder='Crisis' /><br/>
-        <button>Add</button>
+      <form onSubmit={this.props.postGoal.bind(null, this.state)}>
+        Name:    <input type='text' name='name' value={this.state.name} onChange={this.handleChange}  placeholder='Your name' /><br/>
+        Country: <input type='text' name='country' value={this.state.country} onChange={this.handleChange}  placeholder='Country Name' /><br/>
+        Crisis:  <input type='text' name='crisis' value={this.state.crisis} onChange={this.handleChange} placeholder='Crisis' /><br/>
+        <button type='Submit'>Submit</button>
       </form>
     )
   }

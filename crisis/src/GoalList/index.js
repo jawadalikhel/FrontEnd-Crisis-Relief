@@ -5,9 +5,15 @@ const Goals = (props) => {
   const goalsList = props.showGoal.map((goal, i) =>{
     return(
       <div key={goal._id}>
-        <p>Name: {goal.name}</p>
-        <p>Country: {goal.country}</p>
-        <p>Crisis: {goal.crisis}</p>
+        <div>
+          <div>
+            Name: {goal.name}<br/>
+            Country: {goal.country}<br/>
+            Crisis: {goal.crisis}<br/> <br/> 
+          </div>
+
+        </div>
+
       </div>
     )
   })
