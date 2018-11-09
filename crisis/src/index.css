@@ -12,3 +12,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+div .location {
+  background-color: lightblue;
+  display: block;
+  width: 400px;
+  float: left;
+}
+
+div .form {
+  float: left;
+}
