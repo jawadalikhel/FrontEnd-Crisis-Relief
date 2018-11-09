@@ -1,7 +1,8 @@
+
 import React, { Component } from 'react';
 import Countries from './locationList';
 
-class App extends Component {
+class Location extends Component {
   constructor(){
     super();
     this.state = {
@@ -43,4 +44,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default Location;

@@ -6,7 +6,7 @@ const CountriesList = (props) => {
     console.log(val.fields.country, 'THIS IS COUNTRY')
     for(let i = 0; i < val.fields.country.length; i++){
       return(
-        <div>
+        <div key={val._id}>
           Disaster Date: {val.fields.date.created.slice(0,13)}<br/>
           Country: {val.fields.country[i].name}<br/>
           Disaster: {val.fields.type[i].name}<br/><br/>
