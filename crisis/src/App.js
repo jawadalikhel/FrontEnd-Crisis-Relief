@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './App.css';
 import GoalContainer from './GoalContainer';
 import LocationContainer from './LocationContainer';
 import Login from './Login';
-// import Map from './MapContainer'
-// import BrewLocator from './CrisisLocator';
+import Header from './Header';
+
 import { Route, Switch } from 'react-router-dom';
 const My404 = () =>{
   return(
@@ -22,12 +22,12 @@ class App extends Component {
 
       <div className="App">
 
-
+        <Header />
         <div className="form">
           <Switch>
             <Route exact path="/" component={Login}/>
             <Route exact path='/crisis' component={LocationContainer}/>
-            <Route exact path='/goals' component={GoalContainer}/>
+            <Route exact path='/goals'  component={GoalContainer}/>
             <Route component={My404}/>
           </Switch>
         </div>

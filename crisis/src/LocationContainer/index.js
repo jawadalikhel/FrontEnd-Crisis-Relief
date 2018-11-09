@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import Countries from './locationList';
+import Countries from '../locationList';
 
 class Location extends Component {
   constructor(){

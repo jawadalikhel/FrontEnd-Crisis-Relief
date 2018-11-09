@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../App.css';
 import { Form, Label, Button} from 'semantic-ui-react';
 
 class Login extends Component{
@@ -15,18 +16,34 @@ class Login extends Component{
     })
   }
 
-  handleSubmit =(e) =>{
+  handleSubmit = async (e) =>{
     e.preventDefault();
+    const loginResponse = await fetch ('http://localhost:9000/auth', {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const parsedResponse = await loginResponse.json();
+
+    if(parsedResponse.data === 'login successful'){
+      // change our component
+      console.log('succes login')
+      this.props.history.push('/goals')
+    }
   }
   render(){
     return(
-      <Form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className='nav'>
         <Label>Username</Label>
-        <Form.Input type='text' name="username" onChange={this.handleChange} />
+        <input type='text' name="username" onChange={this.handleChange} />
         <Label>Password</Label>
-        <Form.Input type='password' name="username" onChange={this.handleChange} />
+        <input type='password' name="username" onChange={this.handleChange} />
         <Button type="Submit" color="green">Login</Button>
-      </Form>
+      </form>
     )
   }
 }
