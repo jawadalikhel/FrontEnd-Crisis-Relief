@@ -1,0 +1,10 @@
+Form {
+  /* background-color: red; */
+  width: 600px;
+  margin: auto;
+  margin-top: 200px;
+}
+
+.title {
+  text-align: center;
+}

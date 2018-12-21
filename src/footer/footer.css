@@ -1,0 +1,14 @@
+footer {
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 10px;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:#6cf;
+    background: silver;
+}
+
+.Fcontainer {
+}
